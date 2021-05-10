@@ -33,7 +33,7 @@ function ShowWeather(props) {
       </div>
 
       <div className="weatherdetails">
-        <div className="section1">
+        <div className="tableOne">
           <table>
             <tr>
               <td>
@@ -46,10 +46,62 @@ function ShowWeather(props) {
                 </span>
               </td>
             </tr>
+            <tr>
+              <td>
+                <h4>Humidity</h4>
+              </td>
+              <td>
+                <span>
+                  
+                  {data.main.humidity} %
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Pressure</h4>
+              </td>
+              <td>
+                <span>
+                  {data.main.pressure} hPa
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>Visibility</h4>
+              </td>
+              <td>
+                <span>
+                  {data.visibility * 0.00062137119224} Mi
+                </span>
+              </td>
+            </tr>
           </table>
         </div>
       </div>
       
+      <div className="tableTwo">
+        <table>
+          <tr>
+            <td>
+              <h4>Sunrise</h4>
+            </td>
+            <td>
+              <span>{new Date(data.sys.sunrise * 1000 ).toLocaleTimeString()}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h4>Sunset</h4>
+            </td>
+            <td>
+              <span>{new Date(data.sys.sunset * 1000).toLocaleTimeString()}</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
     </div>
   )
 }
