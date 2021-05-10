@@ -7,6 +7,7 @@ function ShowWeather(props) {
   const {data} = props; 
   console.log(data); 
 
+  const icons = 'http://openweathermap.org/img/wn/' + `${data.weather[0].icon}` + '.png'
 
   return (
     <div className= "displayweather">
@@ -22,6 +23,31 @@ function ShowWeather(props) {
           {Math.floor(((data.main.temp - 273) * 1.8) + 32)}
           <sup>o</sup>
         </h1>
+        <span className="weather-main">
+          {data.weather[0].main}
+        </span>
+        <img src={icons} className="weather-icon" alt = ""/>
+        <span className="weather-description">
+          {data.weather[0].description}
+        </span>
+      </div>
+
+      <div className="weatherdetails">
+        <div className="section1">
+          <table>
+            <tr>
+              <td>
+                <h4>High/Low</h4>
+              </td>
+              <td>
+                <span>
+                  {Math.floor(((data.main.temp_max - 273) * 1.8) + 32)} <sup>o</sup> F /{" "}
+                  {Math.floor(((data.main.temp_min - 273) * 1.8) + 32)} <sup>o</sup> F
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
       
     </div>
