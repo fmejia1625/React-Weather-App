@@ -7,6 +7,7 @@ function ShowWeather(props) {
   const {data} = props; 
   console.log(data); 
 
+  // eslint-disable-next-line no-useless-concat
   const icons = 'http://openweathermap.org/img/wn/' + `${data.weather[0].icon}` + '.png'
 
   return (
@@ -113,3 +114,4 @@ export default ShowWeather
 // Create an h1 and within pass the props of {data.main.temp} in order to show the temperature. 
 // Googled how to convert kelvin to farenheit since data is displayed only in kelvin using math.floor. 
 // used super tag to enclose o for temp symbol
+// created tables in order to render information on the screen
