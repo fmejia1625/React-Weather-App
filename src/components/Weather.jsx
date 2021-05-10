@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ShowWeather from './ShowWeather';
 import './weatherstyle.css'
 
 
@@ -14,6 +15,7 @@ const [form,setForm] = useState({
   city:"", 
   country: ""
 });
+const [weather, setWeather] = useState([])
 
 // using asynchronous function in order to fetch data from weather API. If the input is empty, alert the user. else, create variable data and use await fetch in order to retrieve data of city from API. Use template strings here (like pokemon API) 
 // use .then to create a promise that will get response (res) and log it in JSON format. 
@@ -23,7 +25,17 @@ async function weatherData(e) {
   if(form.city === "") {
     alert("Please enter a city");
   } else {
-    const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&appid=${weatherKey}`).then(res => console.log(res.json()))
+    const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&appid=${weatherKey}`)
+    // this allows the whole object to be printed to the console. 
+    .then((res) => res.json())
+    .then((data) => data);
+
+    // assign data to setWeather state
+    setWeather(
+      {
+        data : data
+      }
+    );
   }
 }
 
@@ -39,8 +51,8 @@ const handleChange = (e) => {
   if(name === "country") {
     setForm({...form, country:value})
   }
-  // print out the result using form.city and form.country
-  console.log(form.city, form.country)
+  // Test---> print out the result using form.city and form.country
+  // console.log(form.city, form.country)
 };
 
   return (
@@ -59,6 +71,16 @@ const handleChange = (e) => {
         {/* evoke onClick function, pass event to weatherData */}
         <button className="getWeather" onClick={e => weatherData(e)}>Submit</button>
       </form>
+
+      {/* Ternary: If weather.data is not undefined, render the ShowWeather component, else display null */}
+      {
+        weather.data !== undefined ? 
+        <div>
+          <ShowWeather data={weather.data}/>
+        </div>
+        : null
+      }
+     
     </div>
   );
 }
