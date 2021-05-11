@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ShowWeather from './ShowWeather';
 import './weatherstyle.css'
-import background from './img/sky.png'
+// import background from './img/sky.png'
 
 
 // using functional components over class components due to ease of use. 
@@ -45,7 +45,7 @@ async function weatherData(e) {
 const handleChange = (e) => {
   let name = e.target.name; 
   let value = e.target.value; 
-// if name is city,  set value of city in the form state, use spread operator to set form to form and city:value
+// if name is city,  set value of city in the form state, use spread operator to set form to form and city:value (adding to state)
   if(name === "city") {
     setForm({...form, city:value})
   }
@@ -77,7 +77,7 @@ const handleChange = (e) => {
       {/* Ternary: If weather.data is not undefined, render the ShowWeather component, else display null */}
       {
         weather.data !== undefined ? 
-        <div style={{backgroundImage: `url(${background})`}}>
+        <div >
           <ShowWeather data={weather.data}/>
         </div>
         : null
@@ -86,6 +86,8 @@ const handleChange = (e) => {
     </div>
   );
 }
+
+// style={{backgroundImage: `url(${background})`}}
 
 export default Weather;
 

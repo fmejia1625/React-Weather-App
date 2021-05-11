@@ -4,6 +4,9 @@
   color: navy;
 }
 
+body {
+background-image: url(./img/sky.png);
+}
 
 .title {
   font-size: 80px;
