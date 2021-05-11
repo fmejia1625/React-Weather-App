@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ShowWeather from './ShowWeather';
 import './weatherstyle.css'
+import background from './img/sky.png'
 
 
 // using functional components over class components due to ease of use. 
@@ -21,9 +22,10 @@ const [weather, setWeather] = useState([])
 // use .then to create a promise that will get response (res) and log it in JSON format. 
 async function weatherData(e) {
 
+
   e.preventDefault();
-  if(form.city === "") {
-    alert("Please enter a city");
+  if(form.city === "" || form.country === "") {
+    alert("Please fill out both forms");
   } else {
     const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${form.city},${form.country}&appid=${weatherKey}`)
     // this allows the whole object to be printed to the console. 
@@ -75,7 +77,7 @@ const handleChange = (e) => {
       {/* Ternary: If weather.data is not undefined, render the ShowWeather component, else display null */}
       {
         weather.data !== undefined ? 
-        <div>
+        <div style={{backgroundImage: `url(${background})`}}>
           <ShowWeather data={weather.data}/>
         </div>
         : null

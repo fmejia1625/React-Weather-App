@@ -1,0 +1,13 @@
+*{
+  text-align: center;
+  font-size: 20px;
+  color: navy;
+}
+
+
+.title {
+  font-size: 80px;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  border: solid skyblue 5px; 
+  border-radius: 80%;
+}

@@ -2,6 +2,7 @@
 
 import React from 'react'
 
+
 function ShowWeather(props) {
   // console.log("props", props);
   const {data} = props; 
