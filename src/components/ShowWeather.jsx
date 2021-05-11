@@ -15,11 +15,11 @@ function ShowWeather(props) {
     <div className= "displayweather">
       <div className="maincard">
         <span className="cardtitle">
-          {data.name}, {data.sys.country}. Weather
+          {data.name}, {data.sys.country}. Weather :
         </span>
         &nbsp; &nbsp; 
         <span className="cardsubtitle">
-          As of {new Date().toLocaleTimeString()}
+          As of : {new Date().toLocaleTimeString()}
         </span>
         <h1>
           {Math.floor(((data.main.temp - 273) * 1.8) + 32)}
@@ -39,7 +39,7 @@ function ShowWeather(props) {
           <table>
             <tr>
               <td>
-                <h4>High/Low</h4>
+                <h4>High/Low = </h4>
               </td>
               <td>
                 <span>
@@ -50,7 +50,7 @@ function ShowWeather(props) {
             </tr>
             <tr>
               <td>
-                <h4>Humidity</h4>
+                <h4>Humidity = </h4>
               </td>
               <td>
                 <span>
@@ -61,7 +61,7 @@ function ShowWeather(props) {
             </tr>
             <tr>
               <td>
-                <h4>Pressure</h4>
+                <h4>Pressure = </h4>
               </td>
               <td>
                 <span>
@@ -71,7 +71,7 @@ function ShowWeather(props) {
             </tr>
             <tr>
               <td>
-                <h4>Visibility</h4>
+                <h4>Visibility = </h4>
               </td>
               <td>
                 <span>
@@ -87,7 +87,7 @@ function ShowWeather(props) {
         <table>
           <tr>
             <td>
-              <h4>Sunrise</h4>
+              <h4>Sunrise = </h4>
             </td>
             <td>
               <span>{new Date(data.sys.sunrise * 1000 ).toLocaleTimeString()}</span>
@@ -95,7 +95,7 @@ function ShowWeather(props) {
           </tr>
           <tr>
             <td>
-              <h4>Sunset</h4>
+              <h4>Sunset = </h4>
             </td>
             <td>
               <span>{new Date(data.sys.sunset * 1000).toLocaleTimeString()}</span>
